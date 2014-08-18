@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.csstudio.nsls2.product.feature"
+      label="CS-Studio NSLS2 Product Configuration"
+      version="3.3.3.qualifier"
+      provider-name="CS-Studio Collaboration &lt;cs-studio-core@lists.sourceforge.net&gt;"
+      plugin="org.csstudio.product">
+
+</feature>
