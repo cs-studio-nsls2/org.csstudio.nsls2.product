@@ -4,15 +4,13 @@
 <product name="Cs-studio-nsls2" uid="cs-studio-nsls2" id="org.csstudio.product.product" application="org.csstudio.product.application" version="3.2.8.qualifier" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
-      <image path="/org.csstudio.nsls2.product/icons/about.png"/>
+      <image path="/product/plugins/org.csstudio.product/icons/cs-studio-about.png"/>
    </aboutInfo>
 
    <configIni use="default">
    </configIni>
 
    <launcherArgs>
-      <programArgs>-
-      </programArgs>
       <vmArgs>-Xmx1024m
 -Xms128m
 -XX:MaxPermSize=128M
@@ -21,17 +19,19 @@
       </vmArgsMac>
    </launcherArgs>
 
-   <windowImages i16="/org.csstudio.nsls2.product/icons/css16.png" i32="/org.csstudio.nsls2.product/icons/css32.png" i48="/org.csstudio.nsls2.product/icons/css48.png" i64="/org.csstudio.nsls2.product/icons/css64.png" i128="/org.csstudio.nsls2.product/icons/css128.png"/>
+   <windowImages i16="/product/plugins/org.csstudio.product/icons/css16.png" i32="/product/plugins/org.csstudio.product/icons/css32.png" i48="/product/plugins/org.csstudio.product/icons/css48.png" i64="/product/plugins/org.csstudio.product/icons/css64.png" i128="/product/plugins/org.csstudio.product/icons/css128.png"/>
 
    <splash
-      location="org.csstudio.nsls2.product"
+      location="org.csstudio.product"
       startupProgressRect="5,200,461,15"
       startupMessageRect="7,180,457,20"
       startupForegroundColor="FFFFFF" />
-   <launcher name="css-nsls2">
+   <launcher name="cs-studio-nsls2">
+      <linux icon="/icons/css48.xpm"/>
+      <macosx icon="/icons/css.icns"/>
       <solaris/>
       <win useIco="true">
-         <ico path="/org.csstudio.nsls2.product/icons/css.ico"/>
+         <ico path="/icons/css.ico"/>
          <bmp/>
       </win>
    </launcher>
@@ -40,6 +40,7 @@
 
    <vm>
    </vm>
+
 
    <plugins>
    </plugins>
@@ -71,7 +72,16 @@
       <feature id="org.csstudio.email.feature"/>
       <feature id="org.csstudio.archive.reader.appliance.feature"/>
       <feature id="org.csstudio.nsls2.product.feature"/>
+      <feature id="org.csstudio.logbook.viewer.feature"/>
    </features>
 
+   <configurations>
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
+   </configurations>
 
 </product>
