@@ -11,6 +11,9 @@
    </configIni>
 
    <launcherArgs>
+      <programArgsLin>--launcher.GTK_version
+2
+      </programArgsLin>
       <vmArgs>-Xmx1024m
 -Xms128m
 -XX:MaxPermSize=128M
