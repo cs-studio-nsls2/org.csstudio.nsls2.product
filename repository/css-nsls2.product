@@ -15,7 +15,6 @@
 2
       </programArgsLin>
       <vmArgs>-Xmx1024m
--Xms128m
       </vmArgs>
       <vmArgsLin>-Dorg.eclipse.swt.internal.gtk.cairoGraphics=false
       </vmArgsLin>
@@ -44,7 +43,6 @@
 
    <vm>
    </vm>
-
 
    <plugins>
    </plugins>
@@ -78,6 +76,8 @@
       <feature id="org.csstudio.logbook.viewer.feature"/>
       <feature id="org.csstudio.channelfinder.feature"/>
       <feature id="org.csstudio.shift.feature"/>
+      <feature id="org.csstudio.logbook.shift.feature"/>
+      <feature id="org.csstudio.trends.databrowser2.opiwidget.feature"/>
    </features>
 
    <configurations>
