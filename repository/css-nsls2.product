@@ -14,7 +14,7 @@
       <programArgsLin>--launcher.GTK_version
 2
       </programArgsLin>
-      <vmArgs>-Xmx1024m
+      <vmArgs>-Dorg.osgi.framework.bundle.parent=ext -Dosgi.framework.extensions=org.eclipse.fx.osgi -Xmx1024m
       </vmArgs>
       <vmArgsLin>-Dorg.eclipse.swt.internal.gtk.cairoGraphics=false
       </vmArgsLin>
@@ -78,6 +78,7 @@
       <feature id="org.csstudio.shift.feature"/>
       <feature id="org.csstudio.logbook.shift.feature"/>
       <feature id="org.csstudio.trends.databrowser2.opiwidget.feature"/>
+      <feature id="org.eclipse.fx.target.feature"/>
    </features>
 
    <configurations>
