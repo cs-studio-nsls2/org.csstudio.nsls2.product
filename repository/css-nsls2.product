@@ -79,6 +79,8 @@
       <feature id="org.csstudio.logbook.shift.feature"/>
       <feature id="org.csstudio.trends.databrowser2.opiwidget.feature"/>
       <feature id="org.eclipse.fx.target.feature"/>
+      <feature id="org.csstudio.archive.reader.appliance.feature"/>
+      <feature id="mercurialeclipse"/>
    </features>
 
    <configurations>
