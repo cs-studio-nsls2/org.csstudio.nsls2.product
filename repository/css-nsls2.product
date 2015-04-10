@@ -16,7 +16,7 @@
       </programArgsLin>
       <vmArgs>-Dorg.osgi.framework.bundle.parent=ext -Dosgi.framework.extensions=org.eclipse.fx.osgi -Xmx1024m
       </vmArgs>
-      <vmArgsLin>-Dorg.eclipse.swt.internal.gtk.cairoGraphics=false
+      <vmArgsLin>-Dorg.eclipse.swt.internal.gtk.cairoGraphics=false -Dorg.eclipse.swt.internal.gtk.useCairo=false
       </vmArgsLin>
       <vmArgsMac>-XstartOnFirstThread -Dorg.eclipse.swt.internal.carbon.smallFonts
       </vmArgsMac>
