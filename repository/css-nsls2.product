@@ -80,6 +80,12 @@
       <feature id="org.csstudio.applications.channel.feature"/>
       <feature id="org.csstudio.applications.channelfinder.feature"/>
       <feature id="org.csstudio.applications.opibuilder.feature"/>
+      <feature id="org.csstudio.applications.shift.feature"/>
+      <feature id="org.csstudio.core.platform.feature"/>
+      <feature id="org.csstudio.core.ui.feature"/>
+      <feature id="org.csstudio.applications.utility.feature"/>
+      <feature id="org.csstudio.display.pvtable.feature"/>
+      <feature id="org.csstudio.applications.pvmanager.diag.feature"/>
    </features>
 
    <configurations>
