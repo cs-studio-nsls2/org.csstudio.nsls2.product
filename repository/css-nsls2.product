@@ -29,7 +29,7 @@
       startupProgressRect="5,200,461,15"
       startupMessageRect="7,180,457,20"
       startupForegroundColor="FFFFFF" />
-   <launcher name="cs-studio-nsls2">
+   <launcher name="cs-studio">
       <linux icon="/icons/css48.xpm"/>
       <macosx icon="/icons/css.icns"/>
       <solaris/>
