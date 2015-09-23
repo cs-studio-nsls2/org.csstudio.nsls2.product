@@ -42,7 +42,7 @@
                     </formats>
                     <products>
                         <product>
-                            <id>cs-studio-nsls2</id>
+                            <id>cs-studio</id>
                             <rootFolder>cs-studio</rootFolder>
                             <archiveFileName>cs-studio-nsls2-${nsls2.version}</archiveFileName>
                         </product>
