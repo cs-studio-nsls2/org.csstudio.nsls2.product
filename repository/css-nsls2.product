@@ -44,7 +44,6 @@
    <vm>
    </vm>
 
-
    <plugins>
    </plugins>
 
@@ -64,6 +63,7 @@
       <feature id="org.csstudio.pvmanager.autocomplete.feature"/>
       <feature id="org.csstudio.olog.feature"/>
       <feature id="org.csstudio.alarm.beast.ui.feature"/>
+      <feature id="org.csstudio.alarm.diirt.datasource.feature"/>
       <feature id="org.csstudio.email.feature"/>
       <feature id="org.csstudio.trends.databrowser2.feature"/>
       <feature id="org.csstudio.logbook.viewer.feature"/>
@@ -80,6 +80,7 @@
       <feature id="org.csstudio.applications.pvmanager.diag.feature"/>
       <feature id="mercurialeclipse"/>
       <feature id="org.csstudio.graphene.feature"/>
+      <feature id="org.csstudio.graphene.opiwidgets.feature"/>
       <feature id="org.csstudio.nsls2.product.feature"/>
       <feature id="org.csstudio.pretune.feature"/>
       <feature id="org.eclipse.egit"/>
