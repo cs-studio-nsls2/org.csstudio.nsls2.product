@@ -80,10 +80,11 @@
       <feature id="mercurialeclipse"/>
       <feature id="org.csstudio.graphene.feature"/>
       <feature id="org.csstudio.graphene.opiwidgets.feature"/>
-      <feature id="org.csstudio.nsls2.product.feature"/>
       <feature id="org.csstudio.pretune.feature"/>
       <feature id="org.eclipse.egit"/>
       <feature id="org.eclipse.mylyn.github.feature"/>
+      <feature id="org.csstudio.nsls2.product.feature"/>
+      <feature id="org.csstudio.alarm.diirt.datasource.feature"/>
    </features>
 
    <configurations>
