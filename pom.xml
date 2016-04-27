@@ -22,10 +22,15 @@
     <!-- VERSIONS -->
     <tycho.version>0.23.1</tycho.version>
     <tycho-extras.version>0.23.1</tycho-extras.version>
-    <cs-studio.version>4.2</cs-studio.version>
+    <cs-studio.version>4.3</cs-studio.version>
+    <eclipse.central.url>http://download.eclipse.org</eclipse.central.url>
+    <eclipse.mirror.url>${eclipse.central.url}</eclipse.mirror.url>
+    <orbit-site>${eclipse.mirror.url}/tools/orbit/downloads/drops/R20150519210750/repository/</orbit-site>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jgit.dirtyWorkingTree>error</jgit.dirtyWorkingTree>
     <baselineMode>fail</baselineMode>
+    <upload.root>s3://download.controlsystemstudio.org</upload.root>
+    <download.root>http://download.controlsystemstudio.org</download.root>
   </properties>
 
   <!-- PLUGIN REPOSITORIES -->
@@ -210,50 +215,21 @@
       </properties>
     </profile>
     <profile>
-      <id>platform-luna</id>
+      <id>cs-studio</id>
       <activation>
         <property>
-          <name>platform-version-name</name>
-          <value>luna</value>
-        </property>
-      </activation>
-      <properties>
-        <eclipse-site>http://download.eclipse.org/releases/luna</eclipse-site>
-        <eclipse-update-site>http://download.eclipse.org/eclipse/updates/4.4</eclipse-update-site>
-        <rap-site>http://download.eclipse.org/rt/rap/2.3</rap-site>
-        <rap-incubator-site>http://download.eclipse.org/rt/rap/incubator/nightly/gef</rap-incubator-site>
-        <platform-version>[4.3,4.4)</platform-version>
-        <swtbot-site>http://download.eclipse.org/technology/swtbot/luna/dev-build/update-site</swtbot-site>
-      </properties>
-    </profile>
-    <profile>
-      <id>platform-kepler</id>
-      <activation>
-        <property>
-          <name>platform-version-name</name>
-          <value>kepler</value>
-        </property>
-      </activation>
-      <properties>
-        <eclipse-site>http://download.eclipse.org/releases/kepler</eclipse-site>
-        <eclipse-update-site>http://download.eclipse.org/eclipse/updates/4.3</eclipse-update-site>
-        <rap-site>http://download.eclipse.org/rt/rap/2.2</rap-site>
-        <rap-incubator-site>http://download.eclipse.org/rt/rap/incubator/2.2/gef</rap-incubator-site>
-        <platform-version>[4.2,4.3)</platform-version>
-        <swtbot-site>http://download.eclipse.org/technology/swtbot/kepler/dev-build/update-site</swtbot-site>
-      </properties>
-    </profile>
-    <profile>
-      <id>csstudio-local-repo-enable</id>
-      <activation>
-        <property>
-          <name>csstudio.local.repo</name>
+          <name>!cs-studio</name>
         </property>
       </activation>
       <repositories>
         <repository>
-          <id>csstudio-local-repo</id>
-          <url>file:${csstudio.local.repo}</url>
+          <id>diirt</id>
+          <url>http://diirt.download.controlsystemstudio.org/diirt/3.1.2</url>
+          <layout>p2</layout>
+        </repository>
+        <repository>
+          <id>csstudio</id>
+          <url>${download.root}/updates/${cs-studio.version}</url>
           <layout>p2</layout>
         </repository>
       </repositories>
@@ -284,21 +260,6 @@
       <pluginRepositories>
       </pluginRepositories>
     </profile>
-    <profile>
-      <id>cs-studio</id>
-      <activation>
-        <property>
-          <name>!cs-studio</name>
-        </property>
-      </activation>
-      <repositories>
-        <repository>
-          <id>csstudio-updates</id>
-          <url>http://download.controlsystemstudio.org/updates/${cs-studio.version}</url>
-          <layout>p2</layout>
-        </repository>
-      </repositories>
-    </profile>
   </profiles>
   <!-- P2 REPOSITORIES -->
   <repositories>
@@ -324,12 +285,12 @@
     </repository>
     <repository>
       <id>orbit</id>
-      <url>http://download.eclipse.org/tools/orbit/downloads/drops/R20150519210750/repository</url>
+      <url>${orbit-site}</url>
       <layout>p2</layout>
     </repository>
     <repository>
       <id>efx</id>
-      <url>http://download.eclipse.org/efxclipse/runtime-released/2.1.0/site</url>
+      <url>${eclipse.mirror.url}/efxclipse/runtime-released/2.1.0/site</url>
       <layout>p2</layout>
     </repository>
     <repository>

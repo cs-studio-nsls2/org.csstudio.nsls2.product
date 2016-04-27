@@ -75,7 +75,6 @@
       <feature id="org.csstudio.applications.opibuilder.feature"/>
       <feature id="org.csstudio.applications.shift.feature"/>
       <feature id="org.csstudio.applications.utility.feature"/>
-      <feature id="org.csstudio.display.pvtable.feature"/>
       <feature id="org.csstudio.applications.pvmanager.diag.feature"/>
       <feature id="mercurialeclipse"/>
       <feature id="org.csstudio.graphene.feature"/>
