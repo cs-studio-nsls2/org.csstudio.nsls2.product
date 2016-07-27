@@ -59,7 +59,7 @@
       <feature id="org.csstudio.core.diirt.feature"/>
       <feature id="org.csstudio.core.base.feature"/>
       <feature id="org.csstudio.core.platform.feature"/>
-      <feature id="org.csstudio.core.utility.feature" version="4.1.0.qualifier"/>
+      <feature id="org.csstudio.core.utility.feature"/>
       <feature id="org.csstudio.utilities.feature"/>
       <feature id="org.csstudio.pvmanager.autocomplete.feature"/>
       <feature id="org.csstudio.olog.feature"/>
@@ -81,7 +81,9 @@
       <feature id="org.csstudio.graphene.feature"/>
       <feature id="org.csstudio.graphene.opiwidgets.feature"/>
       <feature id="org.csstudio.pretune.feature"/>
+      <feature id="org.eclipse.platform"/>
       <feature id="org.eclipse.egit"/>
+      <feature id="org.eclipse.egit.mylyn"/>
       <feature id="org.eclipse.mylyn.github.feature"/>
       <feature id="org.csstudio.nsls2.product.feature"/>
       <feature id="org.csstudio.alarm.diirt.datasource.feature"/>
