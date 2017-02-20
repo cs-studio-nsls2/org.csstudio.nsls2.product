@@ -12,7 +12,7 @@ exit -1
 fi
 
 echo ::: Updating plugin versions ::
-mvn -Dtycho.mode=maven org.eclipse.tycho:tycho-versions-plugin:0.20.0:set-version -DnewVersion=$VERSION -Dartifacts=nsls2-product,products-csstudio-nsls2-features,org.csstudio.nsls2.product.feature,nsls2-repository
+mvn -Dtycho.mode=maven org.eclipse.tycho:tycho-versions-plugin:0.23.1:set-version -DnewVersion=$VERSION -Dartifacts=nsls2-product,products-csstudio-nsls2-features,org.csstudio.nsls2.product.feature,nsls2-repository
 # update product because set-version doesn't
 sed -i 's/\(\<product[^>]\+\? version=\"\)[^"]*\("[^>]\+\?>\)/\1'${VERSION}'\2/g'  repository/css-nsls2.product
 
