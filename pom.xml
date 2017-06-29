@@ -20,12 +20,12 @@
   <!-- PROPERTIES -->
   <properties>
     <!-- VERSIONS -->
-    <tycho.version>0.23.1</tycho.version>
-    <tycho-extras.version>0.23.1</tycho-extras.version>
-    <cs-studio.version>4.3</cs-studio.version>
+    <tycho.version>1.0.0</tycho.version>
+    <tycho-extras.version>${tycho.version}</tycho-extras.version>
+    <cs-studio.version>4.5</cs-studio.version>
     <eclipse.central.url>http://download.eclipse.org</eclipse.central.url>
     <eclipse.mirror.url>${eclipse.central.url}</eclipse.mirror.url>
-    <orbit-site>${eclipse.mirror.url}/tools/orbit/downloads/drops/R20150519210750/repository/</orbit-site>
+    <orbit-site>${eclipse.mirror.url}/tools/orbit/R-builds/R20170307180635/repository/</orbit-site>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jgit.dirtyWorkingTree>error</jgit.dirtyWorkingTree>
     <baselineMode>fail</baselineMode>
@@ -207,11 +207,11 @@
         </property>
       </activation>
       <properties>
-        <eclipse-site>http://download.eclipse.org/releases/mars</eclipse-site>
-        <eclipse-update-site>http://download.eclipse.org/eclipse/updates/4.5</eclipse-update-site>
+        <eclipse-site>http://download.eclipse.org/releases/neon</eclipse-site>
+        <eclipse-update-site>http://download.eclipse.org/eclipse/updates/4.6</eclipse-update-site>
         <rap-site>http://download.eclipse.org/rt/rap/3.0</rap-site>
-        <rap-incubator-site>http://archive.eclipse.org/rt/rap/incubator/nightly/gef/20150122-1538/</rap-incubator-site>
-        <platform-version>[4.4,4.5)</platform-version>
+        <rap-incubator-site>http://archive.eclipse.org/rt/rap/incubator/nightly/gef/20150327-1849/</rap-incubator-site>
+        <platform-version>[4.4,4.6)</platform-version>
         <swtbot-site>http://download.eclipse.org/technology/swtbot/mars/dev-build/update-site</swtbot-site>
       </properties>
     </profile>
@@ -296,7 +296,7 @@
     </repository>
     <repository>
       <id>efx</id>
-      <url>${eclipse.mirror.url}/efxclipse/runtime-released/2.1.0/site</url>
+      <url>${eclipse.mirror.url}/efxclipse/runtime-released/2.4.0/site</url>
       <layout>p2</layout>
     </repository>
     <repository>
