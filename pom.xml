@@ -25,13 +25,12 @@
     <cs-studio.version>4.6</cs-studio.version>
     <eclipse.central.url>http://download.eclipse.org</eclipse.central.url>
     <eclipse.mirror.url>${eclipse.central.url}</eclipse.mirror.url>
-    <orbit-site>http://download.eclipse.org/tools/orbit/downloads/drops/R20180330011457/repository</orbit-site>
+    <cs-studio-central.url>http://download.controlsystemstudio.org/product/${cs-studio.version}</cs-studio-central.url>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <jgit.dirtyWorkingTree>error</jgit.dirtyWorkingTree>
     <baselineMode>fail</baselineMode>
-    <upload.root>s3://download.controlsystemstudio.org</upload.root>
-    <download.root>http://download.controlsystemstudio.org</download.root>
-    <diirt.version>3.1.7</diirt.version>
+    <orbit-site>http://download.eclipse.org/tools/orbit/downloads/drops/R20180330011457/repository</orbit-site>
+
     <!-- SonarQube configuration -->
     <sonar.language>java</sonar.language>
     <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
@@ -40,6 +39,69 @@
 
   </properties>
 
+  <!-- Profiles -->
+  <profiles>
+    <profile>
+      <id>platform-default</id>
+      <activation>
+        <property>
+          <name>!platform-version-name</name>
+        </property>
+      </activation>
+      <properties>
+        <eclipse-site>${eclipse.mirror.url}/releases/2018-12</eclipse-site>
+        <eclipse-update-site>${eclipse.mirror.url}/eclipse/updates/4.10</eclipse-update-site>
+        <efx-site>${eclipse.mirror.url}/efxclipse/runtime-nightly/site</efx-site>
+        <openjfx-site>http://downloads.efxclipse.bestsolution.at/p2-repos/openjfx-11/repository</openjfx-site>
+      </properties>
+    </profile>
+    <profile>
+      <id>csstudio-composite-repo-enable</id>
+      <activation>
+        <property>
+          <name>csstudio.composite.repo</name>
+        </property>
+      </activation>
+      <repositories>
+        <repository>
+          <id>csstudio-composite-repo</id>
+          <url>file:${csstudio.composite.repo}</url>
+          <layout>p2</layout>
+        </repository>
+      </repositories>
+    </profile>
+    <profile>
+      <id>cs-studio</id>
+      <activation>
+        <property>
+          <name>!cs-studio</name>
+        </property>
+      </activation>
+      <repositories>
+        <repository>
+          <id>csstudio</id>
+          <url>http://download.controlsystemstudio.org/updates/${cs-studio.version}</url>
+          <layout>p2</layout>
+        </repository>
+        <repository>
+          <id>csstudio-issue-1818</id>
+          <url>http://download.controlsystemstudio.org/issue/1818</url>
+          <layout>p2</layout>
+        </repository>
+      </repositories>
+    </profile>
+    <profile>
+      <id>local-dev</id>
+      <properties>
+        <jgit.dirtyWorkingTree>warning</jgit.dirtyWorkingTree>
+        <baselineMode>warn</baselineMode>
+      </properties>
+      <repositories>
+      </repositories>
+      <pluginRepositories>
+      </pluginRepositories>
+    </profile>
+  </profiles>
   <!-- PLUGIN REPOSITORIES -->
   <pluginRepositories>
     <pluginRepository>
@@ -53,7 +115,34 @@
       </snapshots>
     </pluginRepository>
   </pluginRepositories>
-
+  <!-- P2 REPOSITORIES -->
+  <repositories>
+    <repository>
+      <id>eclipse</id>
+      <url>${eclipse-site}</url>
+      <layout>p2</layout>
+    </repository>
+    <repository>
+      <id>eclipse-updates</id>
+      <url>${eclipse-update-site}</url>
+      <layout>p2</layout>
+    </repository>
+    <repository>
+      <id>efx</id>
+      <url>${efx-site}</url>
+      <layout>p2</layout>
+    </repository>
+    <repository>
+      <id>openjfx</id>
+      <url>${openjfx-site}</url>
+      <layout>p2</layout>
+    </repository>
+    <repository>
+      <id>mercurialeclipse</id>
+      <url>http://download.controlsystemstudio.org/mercurialeclipse</url>
+      <layout>p2</layout>
+    </repository>
+  </repositories>
 
   <!-- CHILD MODULES -->
   <modules>
@@ -63,6 +152,13 @@
 
 
   <build>
+    <extensions>
+      <extension>
+        <groupId>org.kuali.maven.wagons</groupId>
+        <artifactId>maven-s3-wagon</artifactId>
+        <version>1.2.1</version>
+      </extension>
+    </extensions>
     <!-- PLUGIN MANAGEMENT -->
     <pluginManagement>
       <plugins>
@@ -109,32 +205,6 @@
         <configuration>
           <dependency-resolution>
             <extraRequirements>
-              <requirement>
-                <!-- Needed to satisfy the import packages javax.servlet 
-                  and javax.servlet.http required by the plugin org.csstudio.rap.core -->
-                <type>eclipse-plugin</type>
-                <id>javax.servlet</id>
-                <versionRange>0.0.0</versionRange>
-              </requirement>
-              <requirement>
-                <!-- Needed to satisfy the import package org.eclipse.ui.parts 
-                  required by the plugin org.csstudio.logbook.olog -->
-                <type>eclipse-plugin</type>
-                <id>org.eclipse.ui.ide</id>
-                <versionRange>0.0.0</versionRange>
-              </requirement>
-              <requirement>
-                <!-- Needed to generate CS-Studio P2 Repository. -->
-                <type>eclipse-feature</type>
-                <id>org.eclipse.objectteams.otdt.core.patch</id>
-                <versionRange>0.0.0</versionRange>
-              </requirement>
-              <requirement>
-                <!-- Needed as a dependency for org.eclipse.objectteams.otdt.core.patch -->
-                <type>eclipse-feature</type>
-                <id>org.eclipse.jdt</id>
-                <versionRange>0.0.0</versionRange>
-              </requirement>
             </extraRequirements>
             <!-- Default behavior is to resolve ALL dependencies. -->
             <!--<optionalDependencies>ignore</optionalDependencies> -->
@@ -165,128 +235,8 @@
           </environments>
         </configuration>
       </plugin>
-      <plugin>
-        <groupId>org.eclipse.tycho</groupId>
-        <artifactId>tycho-compiler-plugin</artifactId>
-        <version>${tycho.version}</version>
-        <configuration>
-          <!-- Without this argument I get an error in the plugin 'org.csstudio.rap.core' -->
-          <compilerArgument>-err:-forbidden</compilerArgument>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.eclipse.tycho</groupId>
-        <artifactId>tycho-packaging-plugin</artifactId>
-        <configuration>
-          <!--Some project include things that no longer exists. This should 
-            be fixed, but for now this parameter lets the build continue. -->
-          <strictBinIncludes>false</strictBinIncludes>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.eclipse.tycho</groupId>
-        <artifactId>tycho-surefire-plugin</artifactId>
-        <version>${tycho.version}</version>
-        <configuration>
-          <skipTests>true</skipTests>
-        </configuration>
-      </plugin>
     </plugins>
   </build>
-  <!-- Profiles -->
-  <profiles>
-    <profile>
-      <id>platform-default</id>
-      <activation>
-        <property>
-          <name>!platform-version-name</name>
-        </property>
-      </activation>
-      <properties>
-        <eclipse-site>${eclipse.mirror.url}/releases/2018-12</eclipse-site>
-        <eclipse-update-site>${eclipse.mirror.url}/eclipse/updates/4.10</eclipse-update-site>
-        <efx-site>${eclipse.mirror.url}/efxclipse/runtime-nightly/site</efx-site>
-        <openjfx-site>http://downloads.efxclipse.bestsolution.at/p2-repos/openjfx-11/repository</openjfx-site>
-      </properties>
-    </profile>
-    <profile>
-      <id>csstudio-composite-repo-enable</id>
-      <activation>
-        <property>
-          <name>csstudio.composite.repo</name>
-        </property>
-      </activation>
-      <repositories>
-        <repository>
-          <id>csstudio-composite-repo</id>
-          <url>file:${csstudio.composite.repo}</url>
-          <layout>p2</layout>
-        </repository>
-      </repositories>
-    </profile>
-    <profile>
-      <id>cs-studio</id>
-      <activation>
-        <property>
-          <name>!cs-studio</name>
-        </property>
-      </activation>
-      <repositories>
-        <repository>
-          <id>diirt</id>
-          <url>http://diirt.download.controlsystemstudio.org/diirt/${diirt.version}</url>
-          <layout>p2</layout>
-        </repository>
-        <repository>
-          <id>csstudio</id>
-          <url>http://download.controlsystemstudio.org/updates/${cs-studio.version}</url>
-          <layout>p2</layout>
-        </repository>
-        <repository>
-          <id>csstudio-issue-1818</id>
-          <url>http://download.controlsystemstudio.org/issue/1818</url>
-          <layout>p2</layout>
-        </repository>
-      </repositories>
-    </profile>
-    <profile>
-      <id>local-dev</id>
-      <properties>
-        <jgit.dirtyWorkingTree>warning</jgit.dirtyWorkingTree>
-        <baselineMode>warn</baselineMode>
-      </properties>
-      <repositories>
-      </repositories>
-      <pluginRepositories>
-      </pluginRepositories>
-    </profile>
-  </profiles>
-  <!-- P2 REPOSITORIES -->
-  <repositories>
-    <repository>
-      <id>eclipse</id>
-      <url>${eclipse-site}</url>
-      <layout>p2</layout>
-    </repository>
-    <repository>
-      <id>eclipse-updates</id>
-      <url>${eclipse-update-site}</url>
-      <layout>p2</layout>
-    </repository>
-    <repository>
-      <id>efx</id>
-      <url>${efx-site}</url>
-      <layout>p2</layout>
-    </repository>
-    <repository>
-      <id>openjfx</id>
-      <url>${openjfx-site}</url>
-      <layout>p2</layout>
-    </repository>
-    <repository>
-      <id>mercurialeclipse</id>
-      <url>http://download.controlsystemstudio.org/mercurialeclipse</url>
-      <layout>p2</layout>
-    </repository>
-  </repositories>
+
+
 </project>
