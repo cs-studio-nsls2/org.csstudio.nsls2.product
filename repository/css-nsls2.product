@@ -78,7 +78,10 @@
       <feature id="org.csstudio.pvmanager.autocomplete.feature"/>
       <feature id="org.csstudio.applications.pvmanager.diag.feature"/>
       <feature id="org.csstudio.applications.opibuilder.feature"/>
+      <feature id="org.csstudio.applications.opibuilder.edm.feature"/>
+      <feature id="org.csstudio.applications.opibuilder.medm.feature"/>
       <feature id="org.csstudio.applications.logbook.feature"/>
+      <feature id="org.csstudio.applications.shift.feature"/>
       <feature id="org.csstudio.olog.feature"/>
       <feature id="org.csstudio.logbook.viewer.feature"/>
       <feature id="org.csstudio.logbook.shift.feature"/>
@@ -86,11 +89,18 @@
       <feature id="org.csstudio.applications.pvmanager.diag.feature"/>
       <feature id="org.csstudio.email.feature"/>
       <feature id="org.csstudio.utilities.feature"/>
+      <feature id="org.csstudio.applications.utility.feature"/>
       <feature id="org.csstudio.applications.channel.feature"/>
       <feature id="org.csstudio.applications.channelfinder.feature"/>
       <feature id="org.csstudio.graphene.feature"/>
       <feature id="org.csstudio.graphene.opiwidgets.feature"/>
+      <feature id="org.csstudio.pretune.feature"/>
       <feature id="org.csstudio.alarm.beast.ui.feature"/>
+      <feature id="org.csstudio.alarm.diirt.datasource.feature"/>
+      <feature id="org.csstudio.saverestore.feature"/>
+      <feature id="org.csstudio.saverestore.git.feature"/>
+      <feature id="org.csstudio.saverestore.masar.feature"/>
+      <feature id="org.csstudio.perspectives.feature"/>
       <feature id="openjfx.standard.feature"/>
       <feature id="org.eclipse.fx.runtime.min.feature"/>
       <feature id="org.eclipse.e4.rcp"/>
@@ -102,6 +112,7 @@
       <feature id="org.eclipse.equinox.p2.user.ui"/>
       <feature id="org.eclipse.jgit"/>
       <feature id="org.eclipse.platform"/>
+      <feature id="org.csstudio.nsls2.product.feature"/>
    </features>
 
    <configurations>
