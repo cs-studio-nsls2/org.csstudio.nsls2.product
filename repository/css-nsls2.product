@@ -32,7 +32,6 @@
    <launcher name="cs-studio">
       <linux icon="/icons/css48.xpm"/>
       <macosx icon="/icons/css.icns"/>
-      <solaris/>
       <win useIco="true">
          <ico path="/icons/css.ico"/>
          <bmp/>
@@ -53,7 +52,10 @@
       <feature id="org.eclipse.equinox.p2.core.feature"/>
       <feature id="org.eclipse.equinox.p2.rcp.feature"/>
       <feature id="org.eclipse.equinox.p2.extras.feature"/>
-      <feature id="org.eclipse.fx.target.rcp.feature"/>
+      <feature id="org.eclipse.fx.runtime.min.feature"/>
+      <feature id="org.eclipse.platform"/>
+      <feature id="org.eclipse.egit"/>
+      <feature id="openjfx.standard.feature"/>
       <feature id="org.csstudio.product.feature"/>
       <feature id="org.csstudio.core.ui.feature"/>
       <feature id="org.csstudio.core.diirt.feature"/>
@@ -68,7 +70,6 @@
       <feature id="org.csstudio.logbook.viewer.feature"/>
       <feature id="org.csstudio.logbook.shift.feature"/>
       <feature id="org.csstudio.logbook.fault.feature"/>
-      <feature id="org.csstudio.archive.reader.appliance.feature"/>
       <feature id="org.csstudio.applications.channel.feature"/>
       <feature id="org.csstudio.applications.channelfinder.feature"/>
       <feature id="org.csstudio.applications.logbook.feature"/>
@@ -79,8 +80,6 @@
       <feature id="org.csstudio.graphene.feature"/>
       <feature id="org.csstudio.graphene.opiwidgets.feature"/>
       <feature id="org.csstudio.pretune.feature"/>
-      <feature id="org.eclipse.platform"/>
-      <feature id="org.eclipse.egit"/>
       <feature id="org.csstudio.nsls2.product.feature"/>
       <feature id="org.csstudio.alarm.diirt.datasource.feature"/>
       <feature id="org.csstudio.perspectives.feature"/>
@@ -91,6 +90,7 @@
       <feature id="org.csstudio.applications.opibuilder.medm.feature"/>
       <feature id="org.csstudio.trends.databrowser2.feature"/>
       <feature id="org.csstudio.trends.databrowser2.opiwidget.feature"/>
+      <feature id="org.csstudio.archive.reader.appliance.feature"/>
    </features>
 
    <configurations>
