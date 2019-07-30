@@ -9,7 +9,7 @@
   <parent>
     <groupId>org.csstudio</groupId>
     <artifactId>nsls2-product</artifactId>
-    <version>4.5.1</version>
+    <version>4.6.1</version>
   </parent>
 
   <repositories>
@@ -71,6 +71,33 @@
             <goals>
               <goal>archive-products</goal>
             </goals>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <groupId>org.eclipse.tycho.extras</groupId>
+        <artifactId>tycho-p2-extras-plugin</artifactId>
+        <version>${tycho.version}</version>
+        <executions>
+          <execution>
+            <id>mirror-build-to-central-repository</id>
+            <phase>package</phase>
+            <goals>
+              <goal>mirror</goal>
+            </goals>
+            <configuration>
+              <!-- Details: https://www.eclipse.org/tycho/sitedocs-extras/tycho-p2-extras-plugin/mirror-mojo.html -->
+              <source>
+                <repository>
+                  <url>${project.baseUri}/target/repository</url>
+                  <layout>p2</layout>
+                </repository>
+              </source>
+              <append>true</append>
+              <compress>true</compress>
+              <mirrorMetadataOnly>false</mirrorMetadataOnly>
+              <destination>${project.build.directory}/centralrepository</destination>
+            </configuration>
           </execution>
         </executions>
       </plugin>

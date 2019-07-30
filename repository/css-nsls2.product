@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?pde version="3.5"?>
 
-<product name="Cs-studio" uid="cs-studio" id="org.csstudio.product.product" application="org.csstudio.product.application" version="4.5.1" useFeatures="true" includeLaunchers="true">
+<product name="Cs-studio" uid="cs-studio" id="org.csstudio.product.product" application="org.csstudio.product.application" version="4.6.1" useFeatures="true" includeLaunchers="true">
 
    <aboutInfo>
       <image path="/product/plugins/org.csstudio.product/icons/cs-studio-about.png"/>
@@ -14,7 +14,18 @@
       <programArgsLin>--launcher.GTK_version
 2
       </programArgsLin>
-      <vmArgs>-Dorg.osgi.framework.bundle.parent=ext -Dosgi.framework.extensions=org.eclipse.fx.osgi -Xmx1024m
+      <vmArgs>
+      	-Xmx2048m
+		-Xms160m
+		-Djavax.xml.bind.context.factory=com.sun.xml.bind.v2.ContextFactory
+		-Dorg.eclipse.update.reconcile=false
+		-Dosgi.configuration.cascaded=true
+		-Dosgi.sharedConfiguration.area.readOnly=true
+		-Dosgi.install.area.readOnly=true
+		-Dosgi.requiredJavaVersion=11
+		-Dorg.osgi.framework.bundle.parent=ext 
+		-Dosgi.framework.extensions=org.eclipse.fx.osgi
+		-Defxclipse.osgi.hook.debug=false
       </vmArgs>
       <vmArgsLin>-Dorg.eclipse.swt.internal.gtk.cairoGraphics=false -Dorg.eclipse.swt.internal.gtk.useCairo=false
       </vmArgsLin>
@@ -32,7 +43,6 @@
    <launcher name="cs-studio">
       <linux icon="/icons/css48.xpm"/>
       <macosx icon="/icons/css.icns"/>
-      <solaris/>
       <win useIco="true">
          <ico path="/icons/css.ico"/>
          <bmp/>
@@ -53,7 +63,7 @@
       <feature id="org.eclipse.equinox.p2.core.feature"/>
       <feature id="org.eclipse.equinox.p2.rcp.feature"/>
       <feature id="org.eclipse.equinox.p2.extras.feature"/>
-      <feature id="org.eclipse.fx.target.rcp.feature"/>
+      <feature id="org.eclipse.fx.runtime.min.feature"/>
       <feature id="org.csstudio.product.feature"/>
       <feature id="org.csstudio.core.ui.feature"/>
       <feature id="org.csstudio.core.diirt.feature"/>
@@ -78,29 +88,41 @@
       <feature id="org.csstudio.applications.shift.feature"/>
       <feature id="org.csstudio.applications.utility.feature"/>
       <feature id="org.csstudio.applications.pvmanager.diag.feature"/>
-      <feature id="mercurialeclipse"/>
       <feature id="org.csstudio.graphene.feature"/>
       <feature id="org.csstudio.graphene.opiwidgets.feature"/>
       <feature id="org.csstudio.pretune.feature"/>
       <feature id="org.eclipse.platform"/>
       <feature id="org.eclipse.egit"/>
-      <feature id="org.eclipse.egit.mylyn"/>
-      <feature id="org.eclipse.mylyn.github.feature"/>
       <feature id="org.csstudio.nsls2.product.feature"/>
       <feature id="org.csstudio.alarm.diirt.datasource.feature"/>
       <feature id="org.csstudio.perspectives.feature"/>
       <feature id="org.csstudio.saverestore.feature"/>
       <feature id="org.csstudio.saverestore.git.feature"/>
       <feature id="org.csstudio.saverestore.masar.feature"/>
+      <feature id="org.eclipse.ecf.filetransfer.httpclient4.feature"/>
+      <feature id="org.eclipse.help"/>
+      <feature id="org.csstudio.archive.diirt.datasource.feature"/>
+      <feature id="org.eclipse.ecf.core.ssl.feature"/>
+      <feature id="org.eclipse.ecf.filetransfer.ssl.feature"/>
+      <feature id="org.eclipse.rcp"/>
+      <feature id="org.eclipse.ecf.filetransfer.feature"/>
+      <feature id="org.eclipse.ecf.filetransfer.httpclient4.ssl.feature"/>
+      <feature id="org.eclipse.jgit.ssh.apache"/>
+      <feature id="org.eclipse.emf.common"/>
+      <feature id="org.eclipse.emf.ecore"/>
+      <feature id="org.eclipse.ecf.core.feature"/>
+      <feature id="org.eclipse.jgit"/>
    </features>
 
    <configurations>
-      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="0" />
+      <plugin id="org.apache.felix.scr" autoStart="true" startLevel="2" />
+      <plugin id="org.eclipse.core.runtime" autoStart="true" startLevel="4" />
       <plugin id="org.eclipse.equinox.common" autoStart="true" startLevel="2" />
-      <plugin id="org.eclipse.equinox.ds" autoStart="true" startLevel="2" />
       <plugin id="org.eclipse.equinox.event" autoStart="true" startLevel="2" />
-      <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="0" />
+      <plugin id="org.eclipse.equinox.p2.reconciler.dropins" autoStart="true" startLevel="4" />
       <plugin id="org.eclipse.equinox.simpleconfigurator" autoStart="true" startLevel="1" />
+      <plugin id="org.eclipse.osgi" autoStart="true" startLevel="1" />
+      <plugin id="org.eclipse.update.configurator" autoStart="true" startLevel="4" />
    </configurations>
 
 </product>

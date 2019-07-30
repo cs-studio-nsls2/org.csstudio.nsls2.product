@@ -2,7 +2,7 @@
 <feature
       id="org.csstudio.nsls2.product.feature"
       label="CS-Studio NSLS2 Product Configuration"
-      version="4.5.1"
+      version="4.6.1"
       provider-name="CS-Studio Collaboration &lt;cs-studio-core@lists.sourceforge.net&gt;"
       plugin="org.csstudio.product">
 
@@ -11,5 +11,6 @@
          download-size="0"
          install-size="0"
          version="3.9.101.201408150207"
-         unpack="false"/> 
+         unpack="false"/>
+
 </feature>
