@@ -2,15 +2,11 @@
 <project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <modelVersion>4.0.0</modelVersion>
-   <parent>
+  <parent>
     <groupId>org.csstudio</groupId>
-    <artifactId>nsls2-product</artifactId>
+    <artifactId>products-csstudio-nsls2-features</artifactId>
     <version>4.6.1</version>
   </parent>
-  <artifactId>products-csstudio-nsls2-features</artifactId>
-  <packaging>pom</packaging>
-  <modules>
-    <module>org.csstudio.nsls2.product.feature</module>
-    <module>org.csstudio.nsls2.phoebus.feature</module>
-  </modules>
+  <artifactId>org.csstudio.nsls2.phoebus.feature</artifactId>
+  <packaging>eclipse-feature</packaging>
 </project>
