@@ -14,8 +14,7 @@
       <programArgsLin>--launcher.GTK_version
 2
       </programArgsLin>
-      <vmArgs>
-      	-Xmx2048m
+      <vmArgs>-Xmx2048m
 		-Xms160m
 		-Djavax.xml.bind.context.factory=com.sun.xml.bind.v2.ContextFactory
 		-Dorg.eclipse.update.reconcile=false
@@ -88,7 +87,6 @@
       <feature id="org.csstudio.applications.opibuilder.feature"/>
       <feature id="org.csstudio.applications.shift.feature"/>
       <feature id="org.csstudio.applications.utility.feature"/>
-      <feature id="org.csstudio.applications.pvmanager.diag.feature"/>
       <feature id="org.csstudio.graphene.feature"/>
       <feature id="org.csstudio.graphene.opiwidgets.feature"/>
       <feature id="org.csstudio.pretune.feature"/>
@@ -97,12 +95,8 @@
       <feature id="org.csstudio.nsls2.product.feature"/>
       <feature id="org.csstudio.alarm.diirt.datasource.feature"/>
       <feature id="org.csstudio.perspectives.feature"/>
-      <feature id="org.csstudio.saverestore.feature"/>
-      <feature id="org.csstudio.saverestore.git.feature"/>
-      <feature id="org.csstudio.saverestore.masar.feature"/>
       <feature id="org.eclipse.ecf.filetransfer.httpclient4.feature"/>
       <feature id="org.eclipse.help"/>
-      <feature id="org.csstudio.archive.diirt.datasource.feature"/>
       <feature id="org.eclipse.ecf.core.ssl.feature"/>
       <feature id="org.eclipse.ecf.filetransfer.ssl.feature"/>
       <feature id="org.eclipse.rcp"/>
@@ -113,6 +107,8 @@
       <feature id="org.eclipse.emf.ecore"/>
       <feature id="org.eclipse.ecf.core.feature"/>
       <feature id="org.eclipse.jgit"/>
+      <feature id="org.csstudio.phoebus.integration.feature"/>
+      <feature id="org.csstudio.nsls2.phoebus.feature"/>
    </features>
 
    <configurations>
