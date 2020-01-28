@@ -111,6 +111,7 @@
       <feature id="org.eclipse.jgit"/>
       <feature id="org.csstudio.phoebus.integration.feature"/>
       <feature id="org.csstudio.nsls2.phoebus.feature"/>
+      <feature id="org.csstudio.applications.pvmanager.diag.feature"/>
    </features>
 
    <configurations>
