@@ -289,5 +289,10 @@
       <url>http://download.controlsystemstudio.org/mercurialeclipse</url>
       <layout>p2</layout>
     </repository>
+    <repository>
+      <id>egit</id>
+      <url>https://archive.eclipse.org/egit/updates-5.4.2</url>
+      <layout>p2</layout>
+    </repository>
   </repositories>
 </project>
